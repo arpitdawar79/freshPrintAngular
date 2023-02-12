@@ -1,0 +1,13 @@
+<a routerLink="/" class="flex items-center space-x-2">
+  <!-- prettier-ignore -->
+  <mat-icon aria-hidden="false" class="logo-icon transition-all ease-in-out duration-200 {{colorClass$|async}}" aria-label="" fontIcon="interests" *ngIf="(outline$|async)===false"></mat-icon>
+  <span
+    class="material-icons-outlined transition-all ease-in-out duration-200 logo-icon {{
+      colorClass$ | async
+    }}"
+    *ngIf="outline$ | async"
+    >interests</span
+  >
+
+  <span class="hidden text-xl font-bold tracking-tighter capitalize md:inline-block">GitHub Explorer </span>
+</a>

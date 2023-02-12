@@ -1,0 +1,51 @@
+<div class="shadow-lg bg-white rounded-lg overflow-hidden flex mt-4">
+  <div class="flex justify-between w-full">
+    <div class="flex p-2 w-full gap-10">
+      <div class="w-1/3">
+        <div class="flex">
+          <p class="font-bold pr-3">Search Term:</p>
+          <p>{{ HistoryData.search_key }}</p>
+        </div>
+        <div class="flex">
+          <p class="font-bold pr-3">Result:</p>
+          <p>{{ HistoryData.result.total_count || 'NO RESULT FOUND' }}</p>
+        </div>
+      </div>
+      <div class="h-28 overflow-scroll w-1/3 bg-slate-100 border rounded-md border-slate-300 text-left px-3" *ngIf="HistoryData.result.items.length">
+        <ng-container *ngFor="let user of HistoryData.result.items">
+          <a class="flex p-2 items-center hover:bg-slate-300" href="{{ user.html_url }}" target="__blank">
+            <img src="{{ user.avatar_url }}" class="w-8 rounded-md" />
+            <p class="capitalize pl-2">{{ user.login }}</p>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      class="
+        h-full
+        bg-red-700
+        hover:bg-red-800
+        text-white
+        group
+        cursor-pointer
+        flex
+        justify-center
+        items-center
+      "
+      (click)="delete()"
+    >
+      <span
+        class="
+          material-icons-outlined
+          text-5xl
+          opacity-60
+          transition-all
+          ease-in-out
+          duration-200
+          group-hover:pl-3 group-hover:opacity-80
+        "
+        >delete</span
+      >
+    </div>
+  </div>
+</div>
